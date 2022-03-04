@@ -24,9 +24,6 @@
 # passwall依赖
   sed -i '$a src-git small8 https://github.com/ethanhust/small-package' feeds.conf.default
 
-### 修改主题文件
-rm -rf package/lean/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 
 ### 修改为R4A千兆版Breed直刷版
 ## mt7621_xiaomi_mir3g-v2.dts 好像被改成了 mt7621_xiaomi_mi-router-4a-3g-v2.dtsi  测试一下
@@ -47,4 +44,4 @@ rm -rf youhua.txt
 export imsize1=$(grep  -a -n -e 'define Device/xiaomi_mir3g-v2' target/linux/ramips/image/mt7621.mk|cut -d ":" -f 1)
 export imsize1=$(expr $imsize1 + 2)
 export imsize1=$(echo $imsize1"s")
-sed -i "$imsize1/IMAGE_SIZE := .*/IMAGE_SIZE := 16064k/" target/linux/ramips/image/mt7621.mk
+sed -i "$imsize1/IMAGE_SIZE := .*/IMAGE_SIZE := 12064k/" target/linux/ramips/image/mt7621.mk
